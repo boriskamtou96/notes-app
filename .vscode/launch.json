@@ -1,0 +1,38 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "note_flutter",
+            "cwd": "${workspaceFolder}/note_flutter",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart"
+        },
+        {
+            "name": "note_server",
+            "cwd": "${workspaceFolder}/note_server",
+            "request": "launch",
+            "type": "dart",
+            "preLaunchTask": "docker_compose_up",
+            "program": "bin/main.dart",
+            "env": {
+                "SERVERPOD_PASSWORD_database": "vMkDThMZx7RmbP1rru6fD_X8cAHjncH2"
+            },
+            "args": [
+                "--apply-migrations"
+            ]
+        }
+    ],
+    "compounds": [
+        {
+            "name": "note (full stack)",
+            "configurations": [
+                "note_server",
+                "note_flutter"
+            ],
+            "presentation": {
+                "order": 1
+            }
+        }
+    ]
+}
